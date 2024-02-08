@@ -1,0 +1,60 @@
+.thumbnail-image {
+  height: 150px;
+  width: 300px;
+}
+
+.profile-title-container {
+  height: 150px;
+  width: 300px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.profile-image {
+  height: 30px;
+  width: 30px;
+  margin-top: 12px;
+}
+
+.title {
+  font-family: Roboto;
+  font-size: 12px;
+  color: #1e293b;
+}
+
+.name,
+.view-count,
+.published-date {
+  font-family: Roboto;
+  font-size: 12px;
+  color: #00306e;
+}
+
+.view-span {
+  font-family: Roboto;
+  font-size: 10px;
+  color: #00306e;
+}
+
+.view-count-publish-container {
+  height: 20px;
+  width: 150px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.dot {
+  font-weight: bold;
+}
+
+.list-home-items {
+  height: 300px;
+  width: 300px;
+  list-style-type: none;
+}

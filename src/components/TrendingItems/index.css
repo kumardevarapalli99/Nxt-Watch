@@ -1,0 +1,74 @@
+.list-trending-container {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  flex-direction: row;
+}
+
+.thumbnail-trending-image {
+  height: 200px;
+  width: 400px;
+}
+
+.title-name-container {
+  max-height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: -12px;
+  gap: -30px;
+}
+
+.title {
+  font-family: Roboto;
+  font-size: 15px;
+  color: #1e293b;
+  font-weight: bold;
+}
+
+.name {
+  font-family: Roboto;
+  font-size: 15px;
+  color: #1e293b;
+  margin-top: -5px;
+}
+
+.view-count-published-container {
+  height: 20px;
+  width: 130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  margin-top: -10px;
+}
+
+.view-count {
+  font-family: Roboto;
+  font-size: 12px;
+  color: #1e293b;
+}
+
+.views {
+  font-family: Roboto;
+  font-size: 10px;
+  color: #1e293b;
+}
+
+.dot {
+  font-family: Roboto;
+  font-size: 10px;
+  color: #1e293b;
+  font-weight: bold;
+}
+
+.published-at {
+  font-family: Roboto;
+  font-size: 12px;
+  color: #1e293b;
+}
