@@ -1,0 +1,31 @@
+.gaming-list-container {
+  height: 300px;
+  width: 180px;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.gaming-images {
+  height: 240px;
+  width: 160px;
+}
+
+.gaming-title {
+  font-family: Roboto;
+  font-size: 13px;
+  color: #000000;
+  font-weight: bold;
+}
+
+.gaming-views {
+  font-family: Roboto;
+  font-size: 10px;
+  color: #000000;
+  margin-top: -5px;
+}
