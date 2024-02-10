@@ -50,7 +50,7 @@ class NavBarSide extends Component {
 
     const clickedHome = clickHome
       ? 'icon-home-container icon-home-container-2'
-      : 'icon-home-container '
+      : 'icon-home-container'
 
     const boldTextHome = clickHome ? 'home-text home-text-2' : 'home-text'
     const colorIconHome = clickHome ? 'home-icon home-icon-2' : 'home-icon'
@@ -83,7 +83,7 @@ class NavBarSide extends Component {
     return (
       <nav className="nav-bar-container-2">
         <div>
-          <Link to="/" className="home-link">
+          <Link to="/" className="nav-link">
             <button
               type="button"
               className={clickedHome}
@@ -93,7 +93,7 @@ class NavBarSide extends Component {
               <p className={boldTextHome}>Home</p>
             </button>
           </Link>
-          <Link to="/trending" className="home-link">
+          <Link to="/trending" className="nav-link">
             <button
               type="button"
               className={clickedTrending}
@@ -103,7 +103,7 @@ class NavBarSide extends Component {
               <p className={boldTextTrending}>Trending</p>
             </button>
           </Link>
-          <Link to="/gaming" className="home-link">
+          <Link to="/gaming" className="nav-link">
             <button
               type="button"
               className={clickedGaming}
@@ -113,7 +113,7 @@ class NavBarSide extends Component {
               <p className={boldTextGaming}>Gaming</p>
             </button>
           </Link>
-          <Link to="/saved" className="home-link">
+          <Link to="/saved" className="nav-link">
             <button
               type="button"
               className={clickedSaved}

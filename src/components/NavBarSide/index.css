@@ -25,6 +25,7 @@
 
 .icon-home-container-2 {
   background-color: #cffff9;
+  z-index: -1;
 }
 
 .home-icon {
@@ -86,6 +87,13 @@
   font-weight: bold;
 }
 
-.home-link {
+.nav-link {
   text-decoration: none;
+}
+
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+  /* Add the styles for the active link here */
+  background-color: #cffff9;
 }

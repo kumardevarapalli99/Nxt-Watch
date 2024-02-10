@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import NavBarTop from '../NavBarTop'
+import NavBarSide from '../NavBarSide'
 import './index.css'
 
 class SavedVideosRoute extends Component {
@@ -7,6 +8,9 @@ class SavedVideosRoute extends Component {
     return (
       <div>
         <NavBarTop />
+        <div>
+          <NavBarSide />
+        </div>
       </div>
     )
   }

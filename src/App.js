@@ -5,6 +5,7 @@ import TrendingRoute from './components/TrendingRoute'
 import GamingRoute from './components/GamingRoute'
 import SavedVideosRoute from './components/SavedVideosRoute'
 import ProtectedRoute from './components/ProtectedRoute'
+import VideoItemsDetailsRoute from './components/VideoItemsDetailsRoute'
 
 import './App.css'
 
@@ -16,6 +17,7 @@ const App = () => (
     <ProtectedRoute exact path="/trending" component={TrendingRoute} />
     <ProtectedRoute exact path="/gaming" component={GamingRoute} />
     <ProtectedRoute exact path="/saved" component={SavedVideosRoute} />
+    <ProtectedRoute exact path="/video" component={VideoItemsDetailsRoute} />
   </Switch>
 )
 

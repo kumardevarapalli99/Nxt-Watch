@@ -145,3 +145,7 @@
   height: 600px;
   width: 600px;
 }
+
+.video-context {
+  display: none;
+}

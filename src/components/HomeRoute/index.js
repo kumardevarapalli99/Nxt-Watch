@@ -4,6 +4,7 @@ import {FiPlus} from 'react-icons/fi'
 import {FaSearch} from 'react-icons/fa'
 import NavBarTop from '../NavBarTop'
 import NavBarSide from '../NavBarSide'
+import VideoItemsDetailsRoute from '../VideoItemsDetailsRoute'
 import './index.css'
 import HomeItems from '../HomeItems'
 
@@ -13,6 +14,7 @@ class HomeRoute extends Component {
     cancelClicked: false,
     searchInput: '',
     response: '',
+    videoId: '',
   }
 
   componentDidMount() {
@@ -33,7 +35,6 @@ class HomeRoute extends Component {
     this.setState({response: response.status})
     if (response.ok === true) {
       const fetchedData = await response.json()
-      console.log(fetchedData)
       const updatedData = fetchedData.videos.map(each => ({
         id: each.id,
         name: each.channel.name,
@@ -78,6 +79,12 @@ class HomeRoute extends Component {
     </>
   )
 
+  videoIdFind = id => {
+    const a = []
+    const abc = a.concat[id[0]]
+    console.log(abc)
+  }
+
   renderEmptyBackground = () => (
     <div className="no-videos">
       <img
@@ -99,15 +106,19 @@ class HomeRoute extends Component {
   )
 
   renderListOfVideos = () => {
-    const {videosData, searchInput} = this.state
-    console.log(videosData)
+    const {videosData, searchInput, videoId} = this.state
+    console.log(videoId)
     const searchResults = videosData.filter(each =>
       each.title.toLowerCase().includes(searchInput.toLowerCase()),
     )
     return (
       <ul className="ul-list-container">
         {searchResults.map(each => (
-          <HomeItems key={each.id} videos={each} />
+          <HomeItems
+            key={each.id}
+            videos={each}
+            videoIdFind={this.videoIdFind}
+          />
         ))}
       </ul>
     )
@@ -115,7 +126,6 @@ class HomeRoute extends Component {
 
   renderFailureAndResponse = () => {
     const {response} = this.state
-    console.log(response)
     let failed
     if (response === 200) {
       failed = this.renderListOfVideos()
@@ -127,7 +137,8 @@ class HomeRoute extends Component {
   }
 
   render() {
-    const {videosData, cancelClicked, searchInput} = this.state
+    const {videosData, cancelClicked, searchInput, videoId} = this.state
+    console.log(videoId)
 
     const searchResults = videosData.filter(each =>
       each.title.toLowerCase().includes(searchInput.toLowerCase()),
@@ -168,6 +179,9 @@ class HomeRoute extends Component {
                 : this.renderFailureAndResponse()}
             </div>
           </div>
+        </div>
+        <div className="video-context">
+          <VideoItemsDetailsRoute videoId={videoId} />
         </div>
       </div>
     )
