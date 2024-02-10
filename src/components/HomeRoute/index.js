@@ -80,9 +80,11 @@ class HomeRoute extends Component {
   )
 
   videoIdFind = id => {
-    const a = []
-    const abc = a.concat[id[0]]
-    console.log(abc)
+    console.log(id)
+    const {videosData} = this.state
+    const videoDataId = videosData.filter(each => each.id === id)
+
+    this.setState({videoId: videoDataId})
   }
 
   renderEmptyBackground = () => (
@@ -106,8 +108,7 @@ class HomeRoute extends Component {
   )
 
   renderListOfVideos = () => {
-    const {videosData, searchInput, videoId} = this.state
-    console.log(videoId)
+    const {videosData, searchInput} = this.state
     const searchResults = videosData.filter(each =>
       each.title.toLowerCase().includes(searchInput.toLowerCase()),
     )
@@ -144,12 +145,7 @@ class HomeRoute extends Component {
       each.title.toLowerCase().includes(searchInput.toLowerCase()),
     )
 
-    let empty
-    if (searchResults.length !== 0) {
-      empty = false
-    } else {
-      empty = true
-    }
+    const empty = searchResults.length === 0
 
     return (
       <div>
