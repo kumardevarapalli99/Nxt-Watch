@@ -1,7 +1,21 @@
-import React from 'react'
+import createContext, useContext, useState} from 'react'
 
-const VideosContext = React.createContext({
-  id: '',
-})
+const VideoContext = createContext()
 
-export default VideosContext
+export const VideoProvider = ({children}) => {
+  const [videoId, setVideoId] = useState('')
+
+  const updateVideoId = id => {
+    setVideoId(id)
+  }
+
+  return (
+    <VideoContext.Provider value={{videoId, updateVideoId}}>
+      {children}
+    </VideoContext.Provider>
+  )
+}
+
+export const useVideoContext = () => {
+  return useContext(VideoContext)
+}

@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import './index.css'
 
 const HomeItems = props => {
-  const {videos, videoIdFind} = props
+  const {videos} = props
   const {
     id,
     thumbnailUrl,
@@ -13,14 +13,10 @@ const HomeItems = props => {
     viewCount,
   } = videos
 
-  const onClickHomeItem = () => {
-    videoIdFind(id)
-  }
-
   return (
     <>
-      <Link to="/video" className="link-item">
-        <li className="list-home-items" onClick={onClickHomeItem}>
+      <Link to={`/videos/${id}`} className="link-item">
+        <li className="list-home-items">
           <img src={thumbnailUrl} alt="thumbnail" className="thumbnail-image" />
           <div className="profile-title-container">
             <img

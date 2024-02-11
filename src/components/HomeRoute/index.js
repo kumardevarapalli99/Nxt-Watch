@@ -1,20 +1,18 @@
-import {Component} from 'react'
+import {PureComponent} from 'react'
 import Cookies from 'js-cookie'
 import {FiPlus} from 'react-icons/fi'
 import {FaSearch} from 'react-icons/fa'
 import NavBarTop from '../NavBarTop'
 import NavBarSide from '../NavBarSide'
-import VideoItemsDetailsRoute from '../VideoItemsDetailsRoute'
 import './index.css'
 import HomeItems from '../HomeItems'
 
-class HomeRoute extends Component {
+class HomeRoute extends PureComponent {
   state = {
     videosData: [],
     cancelClicked: false,
     searchInput: '',
     response: '',
-    videoId: '',
   }
 
   componentDidMount() {
@@ -79,14 +77,6 @@ class HomeRoute extends Component {
     </>
   )
 
-  videoIdFind = id => {
-    console.log(id)
-    const {videosData} = this.state
-    const videoDataId = videosData.filter(each => each.id === id)
-
-    this.setState({videoId: videoDataId})
-  }
-
   renderEmptyBackground = () => (
     <div className="no-videos">
       <img
@@ -115,11 +105,7 @@ class HomeRoute extends Component {
     return (
       <ul className="ul-list-container">
         {searchResults.map(each => (
-          <HomeItems
-            key={each.id}
-            videos={each}
-            videoIdFind={this.videoIdFind}
-          />
+          <HomeItems key={each.id} videos={each} />
         ))}
       </ul>
     )
@@ -138,9 +124,7 @@ class HomeRoute extends Component {
   }
 
   render() {
-    const {videosData, cancelClicked, searchInput, videoId} = this.state
-    console.log(videoId)
-
+    const {videosData, cancelClicked, searchInput} = this.state
     const searchResults = videosData.filter(each =>
       each.title.toLowerCase().includes(searchInput.toLowerCase()),
     )
@@ -175,9 +159,6 @@ class HomeRoute extends Component {
                 : this.renderFailureAndResponse()}
             </div>
           </div>
-        </div>
-        <div className="video-context">
-          <VideoItemsDetailsRoute videoId={videoId} />
         </div>
       </div>
     )
