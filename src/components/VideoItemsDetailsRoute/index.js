@@ -8,7 +8,13 @@ import SavedVideosRoute from '../SavedVideosRoute'
 import './index.css'
 
 class VideoItemsDetailsRoute extends Component {
-  state = {videosUpdatedData: [], like: false, disLike: false, save: false}
+  state = {
+    videosUpdatedData: [],
+    like: false,
+    disLike: false,
+    save: false,
+    initialSavedList: [],
+  }
 
   componentDidMount() {
     this.getVideosData()
@@ -59,11 +65,31 @@ class VideoItemsDetailsRoute extends Component {
   }
 
   onClickSave = () => {
-    this.setState(prevState => ({save: !prevState.save}))
+    const {videosUpdatedData, initialSavedList} = this.state
+
+    // Check if the video is already in the saved list
+    const isVideoAlreadySaved = initialSavedList.some(
+      each => each.id === videosUpdatedData.id,
+    )
+
+    if (!isVideoAlreadySaved) {
+      // If not, add it to the list
+      this.setState(prevState => ({
+        initialSavedList: [...prevState.initialSavedList, videosUpdatedData],
+        save: !prevState.save,
+      }))
+    }
   }
 
   render() {
-    const {videosUpdatedData, like, disLike, save} = this.state
+    const {
+      videosUpdatedData,
+      like,
+      disLike,
+      save,
+      initialSavedList,
+    } = this.state
+    console.log(initialSavedList)
     const videoId = String(videosUpdatedData.videoUrl)
     const urlId = videoId.split('=')[1]
     console.log(videosUpdatedData)
@@ -149,6 +175,9 @@ class VideoItemsDetailsRoute extends Component {
               </div>
             </div>
           </div>
+        </div>
+        <div className="saved-videos-route">
+          <SavedVideosRoute initialSavedList={initialSavedList} />
         </div>
       </div>
     )
