@@ -15,7 +15,6 @@ class VideoItemsDetailsRoute extends Component {
     const {match} = this.props
     const {params} = match
     const {id} = params
-    console.log(id)
     try {
       const apiUrl = `https://apis.ccbp.in/videos/${id}`
       const token = Cookies.get('jwt_token')
@@ -50,12 +49,25 @@ class VideoItemsDetailsRoute extends Component {
 
   render() {
     const {videosUpdatedData} = this.state
+    const videoId = String(videosUpdatedData.videoUrl)
+    const urlId = videoId.split('=')[1]
     console.log(videosUpdatedData)
     return (
       <div>
         <NavBarTop />
         <div>
           <NavBarSide />
+          <div>
+            <iframe
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${urlId}`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
         </div>
       </div>
     )
